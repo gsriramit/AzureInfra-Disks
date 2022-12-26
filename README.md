@@ -39,10 +39,32 @@ With so many offerings and the multitude of factors in comparing the options, th
 
 ![image](https://user-images.githubusercontent.com/13979783/209493381-928109d2-0571-4a14-bbb5-48148939a928.png)
 
+### Disk Related Metrics
+The metrics listed in the following official docs page has all the metrics necessary to understand the performance of the disks and also the VM they are attached to. Added newly are the bursting related metrics that include the bursting that has happened w.r.t the iops & throughput and also the bursting credits that have been utilized (if credit based bursting has been used and on-demand has not been configured)
+Reference: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-metrics
 
+### Importance of choosing the right VM 
+Excerpt from the MS docs  
+"Azure virtual machines have input/output operations per second (IOPS) and throughput performance limits based on the virtual machine type and size. OS disks and data disks can be attached to virtual machines. The disks have their own IOPS and throughput limits.
+**Your application's performance gets capped when it requests more IOPS or throughput than what is allotted for the virtual machines or attached disks. When capped, the application experiences suboptimal performance.** This can lead to negative consequences like increased latency"  
+The following article talks about the some of the super important basics including
+- Disk IO capping
+- VM IO capping
+- Importance of using host based cache
+- When to use read-only cache and 
+- When to use read-write cache
+Reference: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+Additional reference: Choosing the right VM SKUs in the context of SQL workloads- https://sqlperformance.com/2019/11/azure/importance-vm-size 
+
+### Benchmarking Disks
+Designing the disks would not be complete if the design decisions have not been tested. The following article provides instructions on how benchmarking can be done and what tools to use  
+https://learn.microsoft.com/en-us/azure/virtual-machines/disks-benchmarks
 
 ### Performance testing tools
-TBD
+- [Diskspd for Windows](https://github.com/Microsoft/diskspd/wiki/)
+- [FIO for linux](http://freecode.com/projects/fio)
+
+
 
 
 
