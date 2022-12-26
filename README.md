@@ -89,7 +89,7 @@ Excerpt from [MS documentation](https://learn.microsoft.com/en-us/azure/security
 Microsoft’s approach to enabling two layers of encryption for data at rest is:
 - Encryption at rest using customer-managed keys. You provide your own key for data encryption at rest. You can bring your own keys to your Key Vault (BYOK – Bring Your Own Key), or generate new keys in Azure Key Vault to encrypt the desired resources.
 - Infrastructure encryption using platform-managed keys. By default, data is automatically encrypted at rest using platform-managed encryption keys.
-- 
+
 ## Main Video References
 - [Deep dive on Azure Managed Disks](https://www.youtube.com/watch?v=2nPZyLmciN4&list=WL&index=7&ab_channel=JohnSavill%27sTechnicalTraining)
 - [Azure Disk Storage-Tips for Performance & Scale](https://www.youtube.com/watch?v=i2Xm2HNy92o&ab_channel=MicrosoftAzure)
@@ -99,7 +99,8 @@ Microsoft’s approach to enabling two layers of encryption for data at rest is:
 - [Disk Storage Security Features](https://www.youtube.com/watch?v=ZnXWa0lFdYg&list=PLLasX02E8BPCdLJT8GAWkYCFxzm3evzt0&index=7&ab_channel=MicrosoftAzure)
 - [Disk Encryption Deep Dive](https://www.youtube.com/watch?v=EOXgzTqceok&list=PLQL1JGGe-t0udypvJ4EzDuX1fJTowmDTn&index=33&t=627s&ab_channel=JohnSavill%27sTechnicalTraining)
 
-
+## Important Note:
+The images used in this page are from the videos posted in the Microsoft Azure youtube channel and aren't mine. Links to all of the videos are made available in the section above. Also, the images and the corresponding information are used here just to serve as pointers to architects designing IAAS workloads on Azure and are done with no intention of duplicating the information available on the official MS docs.
 
 
   
