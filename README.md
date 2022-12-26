@@ -1,11 +1,14 @@
-## Designing VM based workloads on Azure 
+# Designing VM based workloads on Azure 
 Things that architects need to know when designing VM based workloads on Azure. The details include
 - The various disk based offerings on Azure
 - When to use which
-- What are the key features to be mindful of (Latency, Iops, Throughput)
+- What are the key features to be mindful of when discussing performance requirements (Latency, Iops, Throughput)
+- Matching reliability requirements with the available features
+- Understanding the security features available
 - How to match these factors against the requirement of the workloads
 - Test the performance of the disks for Iops and throughput to validate the design decisions
 
+## Performance
 ### Disk Types and Characteristics
 https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
 
@@ -47,7 +50,7 @@ Reference: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-metric
 Excerpt from the MS docs  
 "Azure virtual machines have input/output operations per second (IOPS) and throughput performance limits based on the virtual machine type and size. OS disks and data disks can be attached to virtual machines. The disks have their own IOPS and throughput limits.
 **Your application's performance gets capped when it requests more IOPS or throughput than what is allotted for the virtual machines or attached disks. When capped, the application experiences suboptimal performance.** This can lead to negative consequences like increased latency"  
-The following article talks about the some of the super important basics including
+The following article talks about some of the super important basics including
 - Disk IO capping
 - VM IO capping
 - Importance of using host based cache
@@ -64,6 +67,22 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/disks-benchmarks
 - [Diskspd for Windows](https://github.com/Microsoft/diskspd/wiki/)
 - [FIO for linux](http://freecode.com/projects/fio)
 
+## Reliability  (Availability)
+
+### Architecting for High-Availability
+When choosing the distribution and redundancy options for high availability, it is important to note that the managed disks attached to the VM are also distributed according to the chosen option  
+#### Single Instance, Availability sets and Availability zones- SLA guarantees and the disk placement 
+![image](https://user-images.githubusercontent.com/13979783/209507454-268ad85e-c47d-4d8a-90cf-37f4f9c300c6.png)
+
+#### Zone-redundancy in Standard and Premium SKUs
+![image](https://user-images.githubusercontent.com/13979783/209507619-6ff277fe-a698-4c9c-b263-fe8733600ac5.png)
+
+
+## Main Video References
+- [Deep dive on Azure Managed Disks](https://www.youtube.com/watch?v=2nPZyLmciN4&list=WL&index=7&ab_channel=JohnSavill%27sTechnicalTraining)
+- [Azure Disk Storage-Tips for Performance & Scale](https://www.youtube.com/watch?v=i2Xm2HNy92o&ab_channel=MicrosoftAzure)
+- [Premium SSD v2 quick peek](https://www.youtube.com/watch?v=GFfztuVtjpI)
+- [Understanding disk IO and utilizing disk bursting](https://www.youtube.com/watch?v=a5CISpwo5I8&list=PLQL1JGGe-t0s0D5Vl6VRfc4HqeRgMiTav&index=59&t=146s)
 
 
 
