@@ -77,12 +77,27 @@ When choosing the distribution and redundancy options for high availability, it 
 #### Zone-redundancy in Standard and Premium SKUs
 ![image](https://user-images.githubusercontent.com/13979783/209507619-6ff277fe-a698-4c9c-b263-fe8733600ac5.png)
 
+## Security
+### Encryption of Managed Disks
+There are about 4 encryption options that can be used to encrypt Azure managed disks. The following table draws out the available features and the differences when using each of the options. Also, certain options cannot be used in conjunction with the others. For instance, ADE (Azure disk encryption) cannot be used with SSE (Server side encryption) with CMK (Customer Managed Keys) enabled through DES (Disk Encryption Sets)  
+These constraints will have to be taken into account when designing the Security of Managed Disks on Azure
+Reference: https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview
+![image](https://user-images.githubusercontent.com/13979783/209510740-9ce085ba-2bc9-449f-b219-b9c034c93cdc.png)
 
+#### Double Encrytion
+Excerpt from [MS documentation](https://learn.microsoft.com/en-us/azure/security/fundamentals/double-encryption)  
+Microsoft’s approach to enabling two layers of encryption for data at rest is:
+- Encryption at rest using customer-managed keys. You provide your own key for data encryption at rest. You can bring your own keys to your Key Vault (BYOK – Bring Your Own Key), or generate new keys in Azure Key Vault to encrypt the desired resources.
+- Infrastructure encryption using platform-managed keys. By default, data is automatically encrypted at rest using platform-managed encryption keys.
+- 
 ## Main Video References
 - [Deep dive on Azure Managed Disks](https://www.youtube.com/watch?v=2nPZyLmciN4&list=WL&index=7&ab_channel=JohnSavill%27sTechnicalTraining)
 - [Azure Disk Storage-Tips for Performance & Scale](https://www.youtube.com/watch?v=i2Xm2HNy92o&ab_channel=MicrosoftAzure)
 - [Premium SSD v2 quick peek](https://www.youtube.com/watch?v=GFfztuVtjpI)
 - [Understanding disk IO and utilizing disk bursting](https://www.youtube.com/watch?v=a5CISpwo5I8&list=PLQL1JGGe-t0s0D5Vl6VRfc4HqeRgMiTav&index=59&t=146s)
+- [Microsoft's playlist on Azure Disk Storage](https://www.youtube.com/watch?v=66kAKOsOSVM&list=PLLasX02E8BPCdLJT8GAWkYCFxzm3evzt0)
+- [Disk Storage Security Features](https://www.youtube.com/watch?v=ZnXWa0lFdYg&list=PLLasX02E8BPCdLJT8GAWkYCFxzm3evzt0&index=7&ab_channel=MicrosoftAzure)
+- [Disk Encryption Deep Dive](https://www.youtube.com/watch?v=EOXgzTqceok&list=PLQL1JGGe-t0udypvJ4EzDuX1fJTowmDTn&index=33&t=627s&ab_channel=JohnSavill%27sTechnicalTraining)
 
 
 
